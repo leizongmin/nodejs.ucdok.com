@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>《Node.js 实战》读者反馈</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">《Node.js 实战》读者反馈</a>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#">作者简介</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">选择章节 <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <% locals.index.forEach(function (item) { %>
+            <li><a href="/<%= item.filename %>"><%= item.title %></a></li>
+          <% }); %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+  <% if (locals.isHome) { %>
+    <div class="well">
+      <p><%= locals.data.summary %></p>
+    </div>
+    <div class="list-group">
+    <% locals.index.forEach(function (item) { %>
+      <a href="/<%= item.filename %>" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= item.title %></h4>
+        <p class="list-group-item-text"><%= item.content %></p>
+      </a>
+    <% }); %>
+    </div>
+  <% } else { %>
+    <div class="well">
+      <h1><%= locals.data.title %></h1>
+      <p><%= locals.data.content %></p>
+    </div>
+  <% } %>
+    <div class="ds-thread"></div>
+  </div>
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var duoshuoQuery = {
+    short_name: "nodejsbook"
+  };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
