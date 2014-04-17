@@ -14,7 +14,7 @@
         <a class="navbar-brand" href="/">《Node.js 实战》读者反馈</a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="#">作者简介</a></li>
+        <li><a href="/author.html">作者简介</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">选择章节 <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -49,7 +49,7 @@
           <div class="list-group">
           <% locals.index.forEach(function (item) { %>
             <a href="/<%= item.filename %>" class="list-group-item">
-              <h4 class="list-group-item-heading"><%= item.title %> (<%= item.author.name %>)</h4>
+              <h4 class="list-group-item-heading"><%= item.title %>(<%= item.author.name %>)</h4>
               <p class="list-group-item-text"><%= item.content %></p>
             </a>
           <% }); %>
@@ -58,14 +58,26 @@
       </div>
     </div>
   <!-- end 首页 -->
-  <% } else { %>
+  <% } else if (locals.isSection) { %>
   <!-- start 章节 -->
     <div>
       <h1><%= locals.data.title %></h1>
-      <p>作者: <%= locals.data.author.name %></p>
+      <p>作者: <a class="author" href="/author.html#<%= locals.data.author.username %>"><%= locals.data.author.name %></a></p>
       <p><%= locals.data.content %></p>
     </div>
   <!-- end 章节 -->
+  <% } else if (locals.isAuthor) { %>
+  <!-- start 作者 -->
+    <h1>作者简介</h1>
+    <div class="list-group">
+    <% locals.authors.forEach(function (item) { %>
+      <a href="#<%= item.username %>" class="list-group-item" id="<%= item.username %>">
+        <h4 class="list-group-item-heading"><%= item.name %></h4>
+        <p class="list-group-item-text"><%= item.about %></p>
+      </a>
+    <% }); %>
+    </div>
+  <!-- end 作者 -->
   <% } %>
     <div class="ds-thread"></div>
   </div>

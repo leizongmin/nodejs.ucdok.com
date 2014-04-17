@@ -1,6 +1,9 @@
 .book-img img {
   max-width: 100%;
 }
+.list-group {
+  box-shadow: none;
+}
 .list-group a {
   border: none !important;
 }
