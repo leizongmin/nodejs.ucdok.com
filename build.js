@@ -26,12 +26,20 @@ data.index = data.index.map(function (str) {
   var lines = str.trim().split(/\r?\n/);
   return {
     title:   lines[0],
-    content: lines.slice(1).join('\n')
+    author:  parseAuthor(lines[1]),
+    content: lines.slice(2).join('\n')
   };
 });
 data.index.forEach(function (item, i) {
   item.filename = 'pages/' + (i + 1) + '.html';
 });
+function parseAuthor (text) {
+  var b = text.split(/\s+/g);
+  return {
+    name:     b[0],
+    username: b[1]
+  };
+}
 
 // 载入模板
 var render = ejs.compile(fs.readFileSync('./data/template.html', {encoding: 'utf8'}));

@@ -18,7 +18,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">选择章节 <b class="caret"></b></a>
           <ul class="dropdown-menu">
           <% locals.index.forEach(function (item) { %>
-            <li><a href="/<%= item.filename %>"><%= item.title %></a></li>
+            <li><a href="/<%= item.filename %>"><%= item.title %> (<%= item.author.name %>)</a></li>
           <% }); %>
           </ul>
         </li>
@@ -33,7 +33,7 @@
     <div class="list-group">
     <% locals.index.forEach(function (item) { %>
       <a href="/<%= item.filename %>" class="list-group-item">
-        <h4 class="list-group-item-heading"><%= item.title %></h4>
+        <h4 class="list-group-item-heading"><%= item.title %> (<%= item.author.name %>)</h4>
         <p class="list-group-item-text"><%= item.content %></p>
       </a>
     <% }); %>
@@ -41,6 +41,7 @@
   <% } else { %>
     <div class="well">
       <h1><%= locals.data.title %></h1>
+      <p>作者: <%= locals.data.author.name %></p>
       <p><%= locals.data.content %></p>
     </div>
   <% } %>
