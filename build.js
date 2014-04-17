@@ -18,8 +18,8 @@ try {
 
 // 载入数据
 var data = {
-  summary: fs.readFileSync('summary.txt', {encoding: 'utf8'}),
-  index: fs.readFileSync('index.txt', {encoding: 'utf8'})
+  summary: fs.readFileSync('./data/summary.txt', {encoding: 'utf8'}),
+  index: fs.readFileSync('./data/index.txt', {encoding: 'utf8'})
 };
 data.index = data.index.split(/\r?\n\r?\n\r?\n/);
 data.index = data.index.map(function (str) {
@@ -34,7 +34,7 @@ data.index.forEach(function (item, i) {
 });
 
 // 载入模板
-var render = ejs.compile(fs.readFileSync('template.html', {encoding: 'utf8'}));
+var render = ejs.compile(fs.readFileSync('./data/template.html', {encoding: 'utf8'}));
 
 // 生成页面
 function renderPage (filename, data) {
