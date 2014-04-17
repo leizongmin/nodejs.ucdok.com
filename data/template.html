@@ -5,6 +5,7 @@
   <title>《Node.js 实战》读者反馈</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
@@ -34,24 +35,37 @@
     </div>
   </nav>
   <div class="container">
+
   <% if (locals.isHome) { %>
-    <div class="well">
+  <!-- start 首页 -->
+    <div>
       <p><%= locals.data.summary %></p>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="book-img"><img src="/assets/img/book.png"></p>
+        </div>
+        <div class="col-md-6">
+          <div class="list-group">
+          <% locals.index.forEach(function (item) { %>
+            <a href="/<%= item.filename %>" class="list-group-item">
+              <h4 class="list-group-item-heading"><%= item.title %> (<%= item.author.name %>)</h4>
+              <p class="list-group-item-text"><%= item.content %></p>
+            </a>
+          <% }); %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="list-group">
-    <% locals.index.forEach(function (item) { %>
-      <a href="/<%= item.filename %>" class="list-group-item">
-        <h4 class="list-group-item-heading"><%= item.title %> (<%= item.author.name %>)</h4>
-        <p class="list-group-item-text"><%= item.content %></p>
-      </a>
-    <% }); %>
-    </div>
+  <!-- end 首页 -->
   <% } else { %>
-    <div class="well">
+  <!-- start 章节 -->
+    <div>
       <h1><%= locals.data.title %></h1>
       <p>作者: <%= locals.data.author.name %></p>
       <p><%= locals.data.content %></p>
     </div>
+  <!-- end 章节 -->
   <% } %>
     <div class="ds-thread"></div>
   </div>

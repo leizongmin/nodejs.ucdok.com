@@ -1,0 +1,9 @@
+.book-img img {
+  max-width: 100%;
+}
+.list-group a {
+  border: none !important;
+}
+a.list-group-item .list-group-item-heading {
+  color: #004B91 !important;
+}
