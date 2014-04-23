@@ -46,7 +46,8 @@ data.authors = data.authors.map(function (str) {
   return {
     name:     lines[0],
     username: lines[1],
-    about:    lines.slice(2).join('\n')
+    url:      lines[2],
+    about:    lines.slice(3).join('\n')
   };
 });
 

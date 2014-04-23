@@ -70,14 +70,15 @@
   <% } else if (locals.isAuthor) { %>
   <!-- start 作者 -->
     <h1>作者简介</h1>
-    <div class="list-group">
+    <hr>
     <% locals.authors.forEach(function (item) { %>
-      <a href="#<%= item.username %>" class="list-group-item" id="<%= item.username %>">
-        <h4 class="list-group-item-heading"><%= item.name %></h4>
-        <p class="list-group-item-text"><%= item.about %></p>
-      </a>
-    <% }); %>
+    <div id="<%= item.username %>">
+      <h4 class="list-group-item-heading"><%= item.name %></h4>
+      <p>个人主页：<a href="<%= item.url %>" target="_blank"><%= item.url %></a></p>
+      <p class="list-group-item-text"><%= item.about %></p>
+      <hr>
     </div>
+    <% }); %>
   <!-- end 作者 -->
   <% } %>
     <div class="ds-thread"></div>
