@@ -34,7 +34,8 @@ data.index = data.index.map(function (str) {
                   username: b[1]
                 };
               })(lines[1]),
-    content: lines.slice(2).join('\n')
+    source:  lines[2],
+    content: lines.slice(3).join('\n')
   };
 });
 data.index.forEach(function (item, i) {

@@ -42,6 +42,9 @@
   <!-- start 首页 -->
     <div>
       <p><%= locals.data.summary %></p>
+      <div class="well" style="color:#d32;">
+        相应章节的<strong>问题</strong>及<strong>源码</strong>请点上面该章节的链接进入
+      </div>
       <hr>
       <div class="row">
         <div class="col-md-6">
@@ -59,9 +62,6 @@
         </div>
       </div>
     </div>
-    <div class="well">
-      相应章节的问题请点上面该章节的链接进入
-    </div>
   <!-- end 首页 -->
   <% } else if (locals.isSection) { %>
   <!-- start 章节 -->
@@ -69,6 +69,7 @@
       <h1><%= locals.data.title %></h1>
       <p>作者: <a class="author" href="/author.html#<%= locals.data.author.username %>"><%= locals.data.author.name %></a></p>
       <p><%= locals.data.content %></p>
+      <p>源码：<a href="<%= locals.data.source %>" target="_blank"><%= locals.data.source %></a></p>
     </div>
   <!-- end 章节 -->
   <% } else if (locals.isAuthor) { %>
