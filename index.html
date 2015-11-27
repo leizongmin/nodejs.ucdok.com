@@ -9,6 +9,7 @@
 
 body {
   margin-bottom: 100px;
+  /*background: url(/assets/img/bg.jpg);*/
 }
 .container {
   max-width: 768px;
@@ -35,10 +36,13 @@ body {
   display: block;
   margin-top: 0.5em;
 }
-.book .links a {
-
+.book .links {
+  text-align: left;
 }
-.book .links a:hover {
+.book .authors {
+  text-align: left;
+}
+.book a:hover {
   color: red;
 }
 .qrcode-list {
@@ -57,10 +61,31 @@ body {
   width: 100%;
   max-width: 350px;
 }
+.sources {
+  text-align: left;
+}
+.sources ul {
+  padding: 0;
+}
+.sources li {
+  list-style: none;
+  margin: 4px 0;
+  font-size: 13px;
+}
+.links, .sources, .authors {
+  max-width: 354px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.book-new {
+  color: rgb(255, 75, 0);
+  font-style: italic;
+  font-weight: bold;
+}
 
 @media (min-width: 768px) {
   body {
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .book {
     margin-bottom: 0;
@@ -78,7 +103,7 @@ body {
       <div class="col-xs-12 col-sm-6 book">
         <a href="#/book2.html" title="Node.js实战（第2季）">
           <img src="/assets/img/book2_thumb.jpg">
-          <h2>Node.js实战（第2季）<small>2015-10-01</small></h2>
+          <h2>Node.js实战（第2季）<small>2015-10-01 <span class="book-new">最新</span></small></h2>
         </a>
         <p class="links">
           购买：
@@ -87,6 +112,25 @@ body {
           <a href="http://item.jd.com/11778251.html" target="_blank">京东</a>
           <a href="http://product.china-pub.com/4876041" target="_blank">互动出版网</a>
         </p>
+        <p class="authors">
+          作者：
+          <a href="http://weibo.com/spuout" target="_blank">吴中骅</a>
+          <a href="http://ucdok.com" target="_blank">雷宗民</a>
+          <a href="https://github.com/nswbmw" target="_blank">赵坤</a>
+          <a href="https://github.com/yorkie" target="_blank">刘亚中</a>
+        </p>
+        <div class="sources">
+          源码：
+          <ul>
+            <li><a href="https://github.com/DoubleSpout/nodeInAction" target="_blank">第1章：通过Docker快速发布Node.js应用</a></li>
+            <li><a href="https://github.com/leizongmin/book-nodejs-in-action-season-2" target="_blank">第2章：开发OAuth认证服务器</a></li>
+            <li><a href="https://github.com/DoubleSpout/nodeInAction" target="_blank">第3章：基于RabbitMQ搭建消息队列</a></li>
+            <li><a href="https://github.com/leizongmin/book-nodejs-in-action-season-2" target="_blank">第4章：编写命令行工具--打造一个静态博客系统</a></li>
+            <li><a href="https://github.com/nswbmw/N-club" target="_blank">第5章：基于Koa快速开发Web应用</a></li>
+            <li><a href="#" target="_blank">第6章：Node.js测试服务搭建</a></li>
+            <li><a href="https://github.com/51Degrees/51degrees.node" target="_blank">第7章：使用Node.js绑定C语言库--51Degrees.node</a></li>
+          </ul>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-6 book">
         <a href="#/book1.html" title="Node.js实战">
@@ -100,14 +144,28 @@ body {
           <a href="http://item.jd.com/11449805.html" target="_blank">京东</a>
           <a href="http://product.china-pub.com/3769826" target="_blank">互动出版网</a>
         </p>
+        <p class="authors">
+          作者：
+          <a href="https://github.com/nswbmw" target="_blank">赵坤</a>
+          <a href="http://island205.com/" target="_blank">寸志</a>
+          <a href="http://ucdok.com" target="_blank">雷宗民</a>
+          <a href="http://weibo.com/spuout" target="_blank">吴中骅</a>
+        </p>
+        <div class="sources">
+          源码：
+          <ul>
+            <li><a href="https://github.com/nswbmw/N-blog" target="_blank">第1章、第2章：使用Express + MongoDB搭建多人博客</a></li>
+            <li><a href="https://github.com/nswbmw/N-drifter" target="_blank">第3章：使用Redis搭建漂流瓶服务器</a></li>
+            <li><a href="https://github.com/nswbmw/N-weibo" target="_blank">第4章：使用Meteor搭建微博网站</a></li>
+            <li><a href="https://github.com/island205/technode-tutorial" target="_blank">第5章：使用socket.io+Angular打造单页应用</a></li>
+            <li><a href="https://github.com/leizongmin/book-crawler-mysql-cron" target="_blank">第6章：网络爬虫与数据操作</a></li>
+            <li><a href="https://github.com/DoubleSpout/threadAndPackage" target="_blank">第7、8、9章：Node.js的进程与线程，发布一个Package，Web安全实战</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="row qrcode-list">
-      <div class="col-sm-6 qrcode">
-        <h2>微信交流群</h2>
-        <img src="/assets/img/qrcode_wechat.jpg">
-      </div>
-      <div class="col-sm-6 qrcode">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 qrcode">
         <h2>QQ交流群（156627943）</h2>
         <img src="/assets/img/qrcode_qq.jpg">
       </div>
